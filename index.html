@@ -205,7 +205,7 @@ td:last-child {
 		var bodyDefine =
 		[
 			{ html: "<img src='./icons/{JobOrName}.png' onerror='$(this).attr(\"src\", \"./icons/error.png\");' style;' width=90%:' height=90%:'/>", align: "left", effect: dpsBarEffect },
-			{ text: "{name}", width: "", align: "center",effect: myCharacterEffect },
+			{ text: namereplace, width: "", align: "center",effect: myCharacterEffect },
                         //{ text: "{deaths}", width: "", align: "center" },
 			//{ text: "{damage%}", width: "", align: "center" },
 			{ text: "{encdps}", width: "", align: "center" },
@@ -241,6 +241,12 @@ td:last-child {
 			$(cell).addClass("graphCell");
 		}
 
+		function namereplace(combatant, index) {
+        if (combatant["name"].includes(" (YOU)")) {
+        combatant["name"] = combatant["name"].replace(" (YOU)", "");
+        }
+        return combatant["name"];
+    	}
 
 		function dpsBarEffect(cell, combatant, index) {
     		var tank = ["Gld", "Gla", "Pld", "Mrd", "War", "Drk","Gnb"]
