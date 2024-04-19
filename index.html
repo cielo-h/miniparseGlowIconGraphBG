@@ -479,6 +479,9 @@ td:last-child {
 				 		if(combatant.JobOrName == 0 && ptindex != -1){
 							combatant.JobOrName = partymember[ptindex].job;
 						}
+						else if(combatant.job == 0 && combatantName == "Limit Break"){
+                    		combatant.job = "limit break"
+                		}
                 		else if (combatant.JobOrName == 0 && combatantName.indexOf(" (") != -1) {
                     		combatant.JobOrName = "choco";
                 		}
