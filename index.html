@@ -462,6 +462,7 @@ td:last-child {
 			for (var combatantName in data.Combatant) {
 				var combatant = data.Combatant[combatantName];
 				if(combatant.encdps == 0 && combatantName != "YOU") continue;
+				if(combatant.encdps == "---" && combatantName != "YOU") continue;
 				 combatant.JobOrName = combatant.Job.toLowerCase() || 0;
 
 						var ptindex = -1;
